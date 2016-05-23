@@ -13,13 +13,17 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'mailboxer'
 
+group :development do
+  gem 'web-console', '~> 2.0'
+end
 
-group :development, :test do
+group :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
 end
 
 group :production do
