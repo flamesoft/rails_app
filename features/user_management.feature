@@ -8,3 +8,8 @@ Scenario: Allows a visitor to access a registration page
   Given I am on the "home page"
   And I click on the "Sign up" link
   Then I should be on the "registration page"
+
+Scenario: Allows a visitor to access a login page
+  Given I am on the "home page"
+  And I click on the "Login" link
+  Then I should be on the "login page"
