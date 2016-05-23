@@ -18,5 +18,7 @@ Scenario: Display error message when a user put in invalid information
   Given I am on the "registration page"
   And I fill in "user_name" with ""
   And I fill in "user_email" with "test@gmail.com"
-  And I fill in ""
-  Then I should see
+  And I fill in "user_password" with "12345678"
+  And I fill in "user_password_confirmation" with "12345678"
+  And I click on the "Create" button
+  Then I should see "Name can't be blank"

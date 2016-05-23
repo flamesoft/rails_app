@@ -23,3 +23,15 @@ Then(/^I should be on the "([^"]*)"$/) do |page|
      expect(current_path).to eq '/users/sign_in'
   end
 end
+
+Given(/^I fill in "([^"]*)" with "([^"]*)"$/) do |field, value|
+  fill_in(field, with: value)
+end
+
+Given(/^I click on the "([^"]*)" button$/) do |button|
+  click_link_or_button button
+end
+
+Then(/^I should see "([^"]*)"$/) do |text|
+  expect(page).to have_text(text)
+end
