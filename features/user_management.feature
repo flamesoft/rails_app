@@ -13,3 +13,10 @@ Scenario: Allows a visitor to access a login page
   Given I am on the "home page"
   And I click on the "Login" link
   Then I should be on the "login page"
+
+Scenario: Display error message when a user put in invalid information
+  Given I am on the "registration page"
+  And I fill in "user_name" with ""
+  And I fill in "user_email" with "test@gmail.com"
+  And I fill in ""
+  Then I should see
