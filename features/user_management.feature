@@ -125,3 +125,10 @@ Scenario: Display error message for wrong email on Forgot password page
   And I click on the "Send me reset password instructions" link
   Then I should be on the "failed password reset page"
   And I should see "Email not found"
+
+Scenario: Display error message when email field is blank on Forgot password page
+  Given I am on the "forgot password page"
+  And I fill in "user[email]" with ""
+  And I click on the "Send me reset password instructions" link
+  Then I should be on the "failed password reset page"
+  And I should see "Email can't be blank"
