@@ -25,6 +25,15 @@ Scenario: Display error message when a user put in invalid information
   And I click on the "Create" button
   Then I should see "Name can't be blank"
 
+Scenario: Display error message when a user leaves email empty
+  Given I am on the "registration page"
+  And I fill in "user_name" with "test"
+  And I fill in "user_email" with ""
+  And I fill in "user_password" with "12345678"
+  And I fill in "user_password_confirmation" with "12345678"
+  And I click on the "Create" button
+  Then I should see "Email can't be blank"
+
 Scenario: Display error message when name is longer than 10 characters
   Given I am on the "registration page"
   And I fill in "user_name" with "testtest123"
