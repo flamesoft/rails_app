@@ -92,3 +92,10 @@ Scenario: Display error message when email is invalid
   And I fill in "user_password_confirmation" with "12345678"
   And I click on the "Create" button
   Then I should see "Email is invalid"
+
+Scenario: Display welcome message when successfully signed up
+  Given I am on the "registration page"
+  And I fill in "user_name" with "RealName"
+  And I fill in dummy user email and password
+  And I click on the "Create" button
+  Then I should see "Welcome! You have signed up successfully."
