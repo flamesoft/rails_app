@@ -20,8 +20,22 @@ Given(/^I am on the "([^"]*)"$/) do |page|
   end
 end
 
+Given(/^I am on the "([^"]*)" tab$/) do |tab|
+  case tab
+   when 'Inbox' then
+     steps %Q{
+       Given I am a logged-in user
+     }
+     visit mailbox_inbox_path
+  end
+end
+
 Given(/^I click on the "([^"]*)" link$/) do |link|
   click_link_or_button link
+end
+
+Then(/^show me the page$/) do
+  save_and_open_page
 end
 
 Then(/^I should be on the "([^"]*)"$/) do |page|

@@ -143,3 +143,12 @@ Scenario: Send email on Forgot password page
 Scenario: Display Inbox tab when signed in
   Given I am a logged-in user
   Then I should see "Inbox"
+
+Scenario: Display form for composing email
+  Given I am on the "Inbox" tab
+  And I click on the "Compose" link
+  Then I should be on the "compose page"
+  And I should see "Recipients"
+  And I should see "Subject"
+  And I should see "Message"
+  And I should see "Send Message" button
