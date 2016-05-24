@@ -108,9 +108,7 @@ Scenario: Display error message when email or password is invalid
   Then I should see "Invalid email or password."
 
 Scenario: Display welcome message when successfully signed in
-  Given I am on the "login page"
-  And I fill in "user_email" with "jenny@gmail.com"
-  And I fill in "user_password" with "password"
-  And I click on the "Log in" button
+  Given I am a logged-in user
   Then I should be on the "home page"
   And I should see "Signed in successfully."
+  And I should see "Logout"
