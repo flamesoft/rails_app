@@ -22,3 +22,10 @@ Scenario: Display error message when a user put in invalid information
   And I fill in "user_password_confirmation" with "12345678"
   And I click on the "Create" button
   Then I should see "Name can't be blank"
+
+Scenario: Display error message when name is longer than 10 characters
+  Given I am on the "registration page"
+  And I fill in "user_name" with "testtest123"
+  And I fill in dummy user email and password
+  And I click on the "Create" button
+  Then I should see "Name is too long (maximum is 10 characters)"

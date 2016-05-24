@@ -35,3 +35,11 @@ end
 Then(/^I should see "([^"]*)"$/) do |text|
   expect(page).to have_text(text)
 end
+
+Given(/^I fill in dummy user email and password$/) do
+  steps %Q{
+    And I fill in "user_email" with "test@gmail.com"
+    And I fill in "user_password" with "12345678"
+    And I fill in "user_password_confirmation" with "12345678"
+  }
+end
