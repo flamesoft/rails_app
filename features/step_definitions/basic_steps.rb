@@ -1,8 +1,9 @@
-Given(/^there is an existing user called Jenny$/) do
+Given(/^there are 2 existing users called Jenny and Daniel$/) do
   DatabaseCleaner.strategy = :truncation
   DatabaseCleaner.clean
   FactoryGirl.find_definitions
-  @user = create(:user)
+  @user = create(:user1)
+  @user = create(:user2)
 end
 
 Given(/^I am on the "([^"]*)"$/) do |page|

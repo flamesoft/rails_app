@@ -3,8 +3,7 @@ Feature: As a visitor
   I want to be able to see the registration form
 
 Background:
-  Given there is an existing user called Jenny
-
+  Given there are 2 existing users called Jenny and Daniel
 
 Scenario: Allows a visitor to access a registration page
   Given I am on the "home page"
@@ -175,3 +174,11 @@ Scenario: Display Trash tab when signed in
   Given I am a logged-in user
   And I click on the "Inbox" link
   Then I should see "Trash"
+
+Scenario: Allows daniel to sign in
+  Given I am on the "login page"
+  And I fill in "user_email" with "daniel@gmail.com"
+  And I fill in "user_password" with "password"
+  And I click on the "Log in" button
+  Then I should be on the "home page"
+  And I should see "Signed in successfully."
