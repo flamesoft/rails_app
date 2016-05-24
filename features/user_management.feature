@@ -56,3 +56,12 @@ Scenario: Displays error message when name is duplicated
   And I fill in dummy user email and password
   And I click on the "Create" button
   Then I should see "Name has already been taken"
+
+Scenario: Displays error message when the password doesn't match
+  Given I am on the "registration page"
+  And I fill in "user_name" with "testtest123"
+  And I fill in "user_email" with "test@gmail.com"
+  And I fill in "user_password" with "12345678"
+  And I fill in "user_password_confirmation" with "12312312"
+  And I click on the "Create" button
+  Then I should see "Password confirmation doesn't match Password"
