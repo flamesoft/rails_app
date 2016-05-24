@@ -74,3 +74,12 @@ Scenario: Display error message when password is empty
   And I fill in "user_password_confirmation" with ""
   And I click on the "Create" button
   Then I should see "Password can't be blank"
+
+Scenario: Display error message when password is too short
+  Given I am on the "registration page"
+  And I fill in "user_name" with "test123"
+  And I fill in "user_email" with "test@gmail.com"
+  And I fill in "user_password" with "123123"
+  And I fill in "user_password_confirmation" with "123123"
+  And I click on the "Create" button
+  Then I should see "Password is too short (minimum is 8 characters)"
