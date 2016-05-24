@@ -1,3 +1,10 @@
+Given(/^there is an existing user called Jenny$/) do
+  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.clean
+  FactoryGirl.find_definitions
+  @user = create(:user)
+end
+
 Given(/^I am on the "([^"]*)"$/) do |page|
   case page
    when 'home page' then
