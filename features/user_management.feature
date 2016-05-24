@@ -65,3 +65,12 @@ Scenario: Displays error message when the password doesn't match
   And I fill in "user_password_confirmation" with "12312312"
   And I click on the "Create" button
   Then I should see "Password confirmation doesn't match Password"
+
+Scenario: Display error message when password is empty
+  Given I am on the "registration page"
+  And I fill in "user_name" with "test123"
+  And I fill in "user_email" with "test@gmail.com"
+  And I fill in "user_password" with ""
+  And I fill in "user_password_confirmation" with ""
+  And I click on the "Create" button
+  Then I should see "Password can't be blank"
