@@ -59,3 +59,7 @@ Given(/^I am a logged\-in user$/) do
     And I click on the "Log in" button
   }
 end
+
+Then(/^I should see "([^"]*)" button$/) do |button|
+  expect(page).to have_button(button)
+end

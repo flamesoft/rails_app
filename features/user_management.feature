@@ -112,3 +112,9 @@ Scenario: Display welcome message when successfully signed in
   Then I should be on the "home page"
   And I should see "Signed in successfully."
   And I should see "Logout"
+
+Scenario: Display forgot password form after clicking Forgot password
+  Given I am on the "login page"
+  And I click on the "Forgot your password?" link
+  Then I should be on the "forgotten password page"
+  And I should see "Send me reset password instructions" button
