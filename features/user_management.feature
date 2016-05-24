@@ -139,3 +139,7 @@ Scenario: Send email on Forgot password page
   And I click on the "Send me reset password instructions" link
   Then I should be on the "login page"
   And I should see "You will receive an email with instructions on how to reset your password in a few minutes."
+
+Scenario: Display Inbox tab when signed in
+  Given I am a logged-in user
+  Then I should see "Inbox"
