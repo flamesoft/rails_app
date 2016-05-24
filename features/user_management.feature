@@ -152,3 +152,7 @@ Scenario: Display form for composing email
   And I should see "Subject"
   And I should see "Message"
   And I should see "Send Message" button
+
+Scenario: Display user name when signed in
+  Given I am a logged-in user
+  Then I should see "Hello, Jenny"
