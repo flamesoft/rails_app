@@ -165,3 +165,13 @@ Scenario: Composing email successfully
   And I fill in "conversation[body]" with "test body"
   And I click on the "Send Message" button
   Then I should see "Your message was successfully sent!"
+
+Scenario: Display Sent tab when signed in
+  Given I am a logged-in user
+  And I click on the "Inbox" link
+  Then I should see "Sent"
+
+Scenario: Display Trash tab when signed in
+  Given I am a logged-in user
+  And I click on the "Inbox" link
+  Then I should see "Trash"
