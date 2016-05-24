@@ -106,3 +106,11 @@ Scenario: Display error message when email or password is invalid
   And I fill in "user_password" with "12345678"
   And I click on the "Log in" button
   Then I should see "Invalid email or password."
+
+Scenario: Display welcome message when successfully signed in
+  Given I am on the "login page"
+  And I fill in "user_email" with "jenny@gmail.com"
+  And I fill in "user_password" with "password"
+  And I click on the "Log in" button
+  Then I should be on the "home page"
+  And I should see "Signed in successfully."
