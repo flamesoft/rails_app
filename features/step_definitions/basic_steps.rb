@@ -25,7 +25,7 @@ Given(/^I am on the "([^"]*)" tab$/) do |tab|
   case tab
    when 'Inbox' then
      steps %Q{
-       Given I am a logged-in user
+       Given I am logged-in as Jenny
      }
      visit mailbox_inbox_path
   end
@@ -73,12 +73,29 @@ Given(/^I fill in dummy user email and password$/) do
   }
 end
 
-Given(/^I am a logged\-in user$/) do
+Given(/^I am logged\-in as Jenny$/) do
   steps %Q{
     Given I am on the "login page"
     And I fill in "user_email" with "jenny@gmail.com"
     And I fill in "user_password" with "password"
     And I click on the "Log in" button
+  }
+end
+
+Given(/^Daniel sent a mail and signed out$/) do
+  steps %Q{
+    Given I am on the "login page"
+    And I fill in "user_email" with "daniel@gmail.com"
+    And I fill in "user_password" with "password"
+    And I click on the "Log in" button
+    And I click on the "Inbox" link
+    And I click on the "Compose" link
+    And I select "Jenny" from "conversation[recipients][]"
+    And I fill in "conversation[subject]" with "test subject"
+    And I fill in "conversation[body]" with "test body"
+    And I click on the "Send Message" button
+    Then I should see "Your message was successfully sent!"
+    Given I click on the "Logout" link
   }
 end
 

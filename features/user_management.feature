@@ -107,7 +107,7 @@ Scenario: Display error message when email or password is invalid
   Then I should see "Invalid email or password."
 
 Scenario: Display welcome message when successfully signed in
-  Given I am a logged-in user
+  Given I am logged-in as Jenny
   Then I should be on the "home page"
   And I should see "Signed in successfully."
   And I should see "Logout"
@@ -140,7 +140,7 @@ Scenario: Send email on Forgot password page
   And I should see "You will receive an email with instructions on how to reset your password in a few minutes."
 
 Scenario: Display Inbox tab when signed in
-  Given I am a logged-in user
+  Given I am logged-in as Jenny
   Then I should see "Inbox"
 
 Scenario: Display form for composing email
@@ -153,7 +153,7 @@ Scenario: Display form for composing email
   And I should see "Send Message" button
 
 Scenario: Display user name when signed in
-  Given I am a logged-in user
+  Given I am logged-in as Jenny
   Then I should see "Hello, Jenny"
 
 Scenario: Composing email successfully
@@ -166,12 +166,12 @@ Scenario: Composing email successfully
   Then I should see "Your message was successfully sent!"
 
 Scenario: Display Sent tab when signed in
-  Given I am a logged-in user
+  Given I am logged-in as Jenny
   And I click on the "Inbox" link
   Then I should see "Sent"
 
 Scenario: Display Trash tab when signed in
-  Given I am a logged-in user
+  Given I am logged-in as Jenny
   And I click on the "Inbox" link
   Then I should see "Trash"
 
@@ -182,3 +182,12 @@ Scenario: Allows daniel to sign in
   And I click on the "Log in" button
   Then I should be on the "home page"
   And I should see "Signed in successfully."
+
+Scenario: Display reply form when viweing an email
+  Given Daniel sent a mail and signed out
+  Given I am logged-in as Jenny
+  And I click on the "Inbox" link
+  And I click on the "View" link
+  And I fill in "message[body]" with "Test Reply"
+  And I click on the "Reply" button
+  Then I should see "Your reply message was successfully sent!"
