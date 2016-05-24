@@ -46,6 +46,9 @@ Then(/^I should be on the "([^"]*)"$/) do |page|
      expect(current_path).to eq '/users/sign_up'
    when 'login page' then
      expect(current_path).to eq '/users/sign_in'
+   when 'compose page' then
+     #ToDo: how to write conversation_path/:id
+
   end
 end
 
@@ -80,4 +83,8 @@ end
 
 Then(/^I should see "([^"]*)" button$/) do |button|
   expect(page).to have_button(button)
+end
+
+Given(/^I select "([^"]*)" from "([^"]*)"$/) do |value, dropdown_box|
+  select(value, :from => dropdown_box)
 end

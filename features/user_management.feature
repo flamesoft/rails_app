@@ -156,3 +156,12 @@ Scenario: Display form for composing email
 Scenario: Display user name when signed in
   Given I am a logged-in user
   Then I should see "Hello, Jenny"
+
+Scenario: Composing email successfully
+  Given I am on the "Inbox" tab
+  And I click on the "Compose" link
+  And I select "Jenny" from "conversation[recipients][]"
+  And I fill in "conversation[subject]" with "test subject"
+  And I fill in "conversation[body]" with "test body"
+  And I click on the "Send Message" button
+  Then I should see "Your message was successfully sent!"
