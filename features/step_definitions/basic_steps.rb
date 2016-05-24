@@ -13,6 +13,10 @@ Given(/^I am on the "([^"]*)"$/) do |page|
      visit '/users/sign_up'
    when 'login page' then
      visit '/users/sign_in'
+   when 'forgot password page'
+     visit new_user_password_path
+   when 'failed password reset page'
+     visit user_password_path
   end
 end
 
