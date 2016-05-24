@@ -40,3 +40,10 @@ Scenario: Display error message when email is duplicated
   And I fill in "user_password_confirmation" with "12345678"
   And I click on the "Create" button
   Then I should see "Email has already been taken"
+
+Scenario: Displays error message when name is duplicated
+  Given I am on the "registration page"
+  And I fill in "user_name" with "Jenny"
+  And I fill in dummy user email and password
+  And I click on the "Create" button
+  Then I should see "Name has already been taken"
