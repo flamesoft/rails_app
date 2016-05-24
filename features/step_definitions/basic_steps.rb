@@ -8,7 +8,7 @@ end
 Given(/^I am on the "([^"]*)"$/) do |page|
   case page
    when 'home page' then
-     visit '/'
+     visit root_path
    when 'registration page' then
      visit '/users/sign_up'
    when 'login page' then
