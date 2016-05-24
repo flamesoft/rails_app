@@ -99,3 +99,10 @@ Scenario: Display welcome message when successfully signed up
   And I fill in dummy user email and password
   And I click on the "Create" button
   Then I should see "Welcome! You have signed up successfully."
+
+Scenario: Display error message when email or password is invalid
+  Given I am on the "login page"
+  And I fill in "user_email" with "jenny2@gmail.com"
+  And I fill in "user_password" with "12345678"
+  And I click on the "Log in" button
+  Then I should see "Invalid email or password."
