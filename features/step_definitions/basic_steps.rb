@@ -10,9 +10,9 @@ Given(/^I am on the "([^"]*)"$/) do |page|
    when 'home page' then
      visit root_path
    when 'registration page' then
-     visit '/users/sign_up'
+     visit new_user_registration_path
    when 'login page' then
-     visit '/users/sign_in'
+     visit user_session_path
    when 'forgot password page'
      visit new_user_password_path
    when 'failed password reset page'
@@ -41,11 +41,11 @@ end
 Then(/^I should be on the "([^"]*)"$/) do |page|
   case page
    when 'home page' then
-     expect(current_path).to eq '/'
+     expect(current_path).to eq root_path
    when 'registration page' then
-     expect(current_path).to eq '/users/sign_up'
+     expect(current_path).to eq new_user_registration_path
    when 'login page' then
-     expect(current_path).to eq '/users/sign_in'
+     expect(current_path).to eq user_session_path
    when 'compose page' then
      #ToDo: how to write conversation_path/:id
 
