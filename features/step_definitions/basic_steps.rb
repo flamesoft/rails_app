@@ -93,3 +93,11 @@ end
 Given(/^I select "([^"]*)" from "([^"]*)"$/) do |value, dropdown_box|
   select(value, from: dropdown_box)
 end
+
+Given(/^I check "([^"]*)"$/) do |checkbox|
+  check(checkbox)
+end
+
+Then(/^I should see "([^"]*)" in "([^"]*)"$/) do |value, field|
+  find_field(field).value.should eq value
+end

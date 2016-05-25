@@ -198,3 +198,18 @@ Scenario: Display reply form when viewing an email
   And I fill in "message[body]" with "Test Reply"
   And I click on the "Reply" button
   Then I should see "Your reply message was successfully sent!"
+
+Scenario: Save and display login info the next time after remember me
+  Given I am on the "login page"
+  And I fill in "Email" with "jenny@gmail.com"
+  And I fill in "Password" with "password"
+  And I check "Remember me"
+  And I click on the "Log in" button
+  And I am on the "home page"
+  And I click on the "Logout" link
+  And I am on the "home page"
+  And I click on the "Login" link
+  Then show me the page
+  Then I should be on the "login page"
+  #ToDo: check how remember me works
+  #And I should see "jenny@gmail.com" in "Email"
