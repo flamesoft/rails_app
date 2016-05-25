@@ -1,5 +1,4 @@
 Given(/^following users exists$/) do |table|
-  FactoryGirl.find_definitions
   table.hashes.each do |user|
     create(:user, name: user[:name], email: user[:email], password: user[:password])
   end
