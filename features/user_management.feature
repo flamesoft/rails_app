@@ -17,92 +17,92 @@ Scenario: Allows a visitor to access a login page
 
 Scenario: Display error message when a user put in invalid information
   Given I am on the "registration page"
-  And I fill in "user_name" with ""
-  And I fill in "user_email" with "test@gmail.com"
-  And I fill in "user_password" with "12345678"
+  And I fill in "Name" with ""
+  And I fill in "Email" with "test@gmail.com"
+  And I fill in "Password" with "12345678"
   And I fill in "user_password_confirmation" with "12345678"
   And I click on the "Create" button
   Then I should see "Name can't be blank"
 
 Scenario: Display error message when a user leaves email empty
   Given I am on the "registration page"
-  And I fill in "user_name" with "test"
-  And I fill in "user_email" with ""
-  And I fill in "user_password" with "12345678"
+  And I fill in "Name" with "test"
+  And I fill in "Email" with ""
+  And I fill in "Password" with "12345678"
   And I fill in "user_password_confirmation" with "12345678"
   And I click on the "Create" button
   Then I should see "Email can't be blank"
 
 Scenario: Display error message when name is longer than 10 characters
   Given I am on the "registration page"
-  And I fill in "user_name" with "testtest123"
+  And I fill in "Name" with "testtest123"
   And I fill in dummy user email and password
   And I click on the "Create" button
   Then I should see "Name is too long (maximum is 10 characters)"
 
 Scenario: Display error message when email is duplicated
   Given I am on the "registration page"
-  And I fill in "user_name" with "test123"
-  And I fill in "user_email" with "jenny@gmail.com"
-  And I fill in "user_password" with "12345678"
+  And I fill in "Name" with "test123"
+  And I fill in "Email" with "jenny@gmail.com"
+  And I fill in "Password" with "12345678"
   And I fill in "user_password_confirmation" with "12345678"
   And I click on the "Create" button
   Then I should see "Email has already been taken"
 
 Scenario: Displays error message when name is duplicated
   Given I am on the "registration page"
-  And I fill in "user_name" with "Jenny"
+  And I fill in "Name" with "Jenny"
   And I fill in dummy user email and password
   And I click on the "Create" button
   Then I should see "Name has already been taken"
 
 Scenario: Displays error message when the password doesn't match
   Given I am on the "registration page"
-  And I fill in "user_name" with "testtest123"
-  And I fill in "user_email" with "test@gmail.com"
-  And I fill in "user_password" with "12345678"
+  And I fill in "Name" with "testtest123"
+  And I fill in "Email" with "test@gmail.com"
+  And I fill in "Password" with "12345678"
   And I fill in "user_password_confirmation" with "12312312"
   And I click on the "Create" button
   Then I should see "Password confirmation doesn't match Password"
 
 Scenario: Display error message when password is empty
   Given I am on the "registration page"
-  And I fill in "user_name" with "test123"
-  And I fill in "user_email" with "test@gmail.com"
-  And I fill in "user_password" with ""
+  And I fill in "Name" with "test123"
+  And I fill in "Email" with "test@gmail.com"
+  And I fill in "Password" with ""
   And I fill in "user_password_confirmation" with ""
   And I click on the "Create" button
   Then I should see "Password can't be blank"
 
 Scenario: Display error message when password is too short
   Given I am on the "registration page"
-  And I fill in "user_name" with "test123"
-  And I fill in "user_email" with "test@gmail.com"
-  And I fill in "user_password" with "123123"
+  And I fill in "Name" with "test123"
+  And I fill in "Email" with "test@gmail.com"
+  And I fill in "Password" with "123123"
   And I fill in "user_password_confirmation" with "123123"
   And I click on the "Create" button
   Then I should see "Password is too short (minimum is 8 characters)"
 
 Scenario: Display error message when email is invalid
   Given I am on the "registration page"
-  And I fill in "user_name" with "test123"
-  And I fill in "user_email" with "testgmail.com"
-  And I fill in "user_password" with "12345678"
+  And I fill in "Name" with "test123"
+  And I fill in "Email" with "testgmail.com"
+  And I fill in "Password" with "12345678"
   And I fill in "user_password_confirmation" with "12345678"
   And I click on the "Create" button
   Then I should see "Email is invalid"
 
 Scenario: Display welcome message when successfully signed up
   Given I am on the "registration page"
-  And I fill in "user_name" with "RealName"
+  And I fill in "Name" with "RealName"
   And I fill in dummy user email and password
   And I click on the "Create" button
   Then I should see "Welcome! You have signed up successfully."
 
 Scenario: Display error message when email or password is invalid
   Given I am on the "login page"
-  And I fill in "user_email" with "jenny2@gmail.com"
-  And I fill in "user_password" with "12345678"
+  And I fill in "Email" with "jenny2@gmail.com"
+  And I fill in "Password" with "12345678"
   And I click on the "Log in" button
   Then I should see "Invalid email or password."
 
@@ -177,8 +177,8 @@ Scenario: Display Trash tab when signed in
 
 Scenario: Allows daniel to sign in
   Given I am on the "login page"
-  And I fill in "user_email" with "daniel@gmail.com"
-  And I fill in "user_password" with "password"
+  And I fill in "Email" with "daniel@gmail.com"
+  And I fill in "Password" with "password"
   And I click on the "Log in" button
   Then I should be on the "home page"
   And I should see "Signed in successfully."
