@@ -3,7 +3,10 @@ Feature: As a visitor
   I want to be able to see the registration form
 
 Background:
-  Given there are 2 existing users called Jenny and Daniel
+  Given following users exists
+    | name   | email            | password |
+    | Jenny  | jenny@gmail.com  | password |
+    | Daniel | daniel@gmail.com | password |
 
 Scenario: Allows a visitor to access a registration page
   Given I am on the "home page"

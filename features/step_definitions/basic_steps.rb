@@ -1,7 +1,8 @@
-Given(/^there are 2 existing users called Jenny and Daniel$/) do
+Given(/^following users exists$/) do |table|
   FactoryGirl.find_definitions
-  @user = create(:user1)
-  @user = create(:user2)
+  table.hashes.each do |user|
+    create(:user, name: user[:name], email: user[:email], password: user[:password])
+  end
 end
 
 Given(/^I am on the "([^"]*)"$/) do |page|
