@@ -1,6 +1,4 @@
 Given(/^there are 2 existing users called Jenny and Daniel$/) do
-  DatabaseCleaner.strategy = :truncation
-  DatabaseCleaner.clean
   FactoryGirl.find_definitions
   @user = create(:user1)
   @user = create(:user2)
