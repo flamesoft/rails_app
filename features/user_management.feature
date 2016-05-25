@@ -110,7 +110,10 @@ Scenario: Display error message when email or password is invalid
   Then I should see "Invalid email or password."
 
 Scenario: Display welcome message when successfully signed in
-  Given I am logged-in as Jenny
+  Given I am on the "login page"
+  And I fill in "Email" with "jenny@gmail.com"
+  And I fill in "Password" with "password"
+  And I click on the "Log in" button
   Then I should be on the "home page"
   And I should see "Signed in successfully."
   And I should see "Logout"
@@ -143,11 +146,13 @@ Scenario: Send email on Forgot password page
   And I should see "You will receive an email with instructions on how to reset your password in a few minutes."
 
 Scenario: Display Inbox tab when signed in
-  Given I am logged-in as Jenny
+  Given I am logged-in as "Jenny"
+  And I am on the "home page"
   Then I should see "Inbox"
 
 Scenario: Display form for composing email
-  Given I am on the "Inbox" tab
+  Given I am logged-in as "Jenny"
+  And I am on the "Inbox" tab
   And I click on the "Compose" link
   Then I should be on the "compose page"
   And I should see "Recipients"
@@ -156,11 +161,13 @@ Scenario: Display form for composing email
   And I should see "Send Message" button
 
 Scenario: Display user name when signed in
-  Given I am logged-in as Jenny
+  Given I am logged-in as "Jenny"
+  And I am on the "home page"
   Then I should see "Hello, Jenny"
 
 Scenario: Composing email successfully
-  Given I am on the "Inbox" tab
+  Given I am logged-in as "Jenny"
+  And I am on the "Inbox" tab
   And I click on the "Compose" link
   And I select "Jenny" from "conversation[recipients][]"
   And I fill in "conversation[subject]" with "test subject"
@@ -169,26 +176,23 @@ Scenario: Composing email successfully
   Then I should see "Your message was successfully sent!"
 
 Scenario: Display Sent tab when signed in
-  Given I am logged-in as Jenny
+  Given I am logged-in as "Jenny"
+  And I am on the "home page"
   And I click on the "Inbox" link
   Then I should see "Sent"
 
 Scenario: Display Trash tab when signed in
-  Given I am logged-in as Jenny
+  Given I am logged-in as "Jenny"
+  And I am on the "home page"
   And I click on the "Inbox" link
   Then I should see "Trash"
 
-Scenario: Allows daniel to sign in
-  Given I am on the "login page"
-  And I fill in "Email" with "daniel@gmail.com"
-  And I fill in "Password" with "password"
-  And I click on the "Log in" button
-  Then I should be on the "home page"
-  And I should see "Signed in successfully."
-
-Scenario: Display reply form when viweing an email
-  Given Daniel sent a mail and signed out
-  Given I am logged-in as Jenny
+Scenario: Display reply form when viewing an email
+  Given I am logged-in as "Daniel"
+  And I send a mail
+  And I click on the "Logout" link
+  Given I am logged-in as "Jenny"
+  And I am on the "home page"
   And I click on the "Inbox" link
   And I click on the "View" link
   And I fill in "message[body]" with "Test Reply"
