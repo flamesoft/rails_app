@@ -24,8 +24,7 @@ $color1: #F6EED4;
 $color2: #FAD961;
 body {
   padding-top: 60px;
-  background: no-repeat center;
-  background-size: 100%;
+  background-size: 100% auto;
   background-image: image-url('b2.jpg');
 }
 h2 { color: #ffffff;
@@ -50,8 +49,7 @@ h2 { color: #ffffff;
 @media (max-width: 979px) {
   body {
     padding-top: 0px;
-    background: no-repeat center;
-    background-size: 100%;
+    background-size: 100% auto;
     background-image: image-url('b2.jpg');
   }
 }
