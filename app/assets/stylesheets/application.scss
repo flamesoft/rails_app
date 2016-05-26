@@ -20,12 +20,38 @@
 @import 'bootstrap/theme';
 @import 'chosen';
 
+$color1: #F6EED4;
+$color2: #FAD961;
 body {
   padding-top: 60px;
+  background: no-repeat center;
+  background-size: 100%;
+  background-image: image-url('b2.jpg');
+}
+h2 { color: #ffffff;
+  font-family: 'Raleway',sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 36px;
+  margin: 24 0 0 24px;
+  text-align: center;
+}
+
+.alert-custom{
+  color: $color1;
+  height: 50px;
+  padding-top: 10px;
+}
+
+.alert-text{
+  font-size: 1.1em;
 }
 
 @media (max-width: 979px) {
   body {
     padding-top: 0px;
+    background: no-repeat center;
+    background-size: 100%;
+    background-image: image-url('b2.jpg');
   }
 }
