@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     self.name
   end
 
-  def mailboxer_email(object)
+  def mailboxer_email(_object)
     self.email
   end
 
