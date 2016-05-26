@@ -16,7 +16,10 @@
       <br />
 
       <div class="field">
-        <%= f.password_field :password, placeholder: "Password (8 characters minimum) ", class: "form-control", autocomplete: "off" %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br/>
+        <%= f.password_field :password, placeholder: "Password", class: "form-control", autocomplete: "off" %>
       </div>
       <br />
 
