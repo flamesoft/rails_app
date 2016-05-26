@@ -222,3 +222,32 @@ Scenario: Move to trash
   And I click on the "View" link
   And I click on the "Move to trash" link
   And I should not see "View"
+
+Scenario: Validate subject is not empty
+  Given I am logged-in as "Daniel"
+  And I am on the "Inbox" tab
+  And I click on the "Compose" link
+  And I select "Jenny" from "conversation[recipients][]"
+  And I fill in "conversation[subject]" with ""
+  And I fill in "conversation[body]" with "test body"
+  And I click on the "Send Message" button
+  Then I should see "Your message must have a subject"
+
+Scenario: Validate subject is not empty
+  Given I am logged-in as "Daniel"
+  And I am on the "Inbox" tab
+  And I click on the "Compose" link
+  And I select "Jenny" from "conversation[recipients][]"
+  And I fill in "conversation[subject]" with "subject"
+  And I fill in "conversation[body]" with ""
+  And I click on the "Send Message" button
+  Then I should see "Your message cannot be empty"
+
+Scenario: Validate recipients are not empty
+  Given I am logged-in as "Daniel"
+  And I am on the "Inbox" tab
+  And I click on the "Compose" link
+  And I fill in "conversation[subject]" with "subject"
+  And I fill in "conversation[body]" with "boy"
+  And I click on the "Send Message" button
+  Then I should see "Your recipients cannot be empty"

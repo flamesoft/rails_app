@@ -5,10 +5,20 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    recipients = User.where(id: conversation_params[:recipients])
-    conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
-    flash[:success] = 'Your message was successfully sent!'
-    redirect_to conversation_path(conversation)
+    if conversation_params[:subject].empty? then
+      show_error 'Your message must have a subject'
+    elsif conversation_params[:body].empty? then
+      show_error 'Your message cannot be empty'
+    else
+      recipients = User.where(id: conversation_params[:recipients])
+      if recipients.empty? then
+          show_error 'Your recipients cannot be empty'
+      else
+        conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
+        flash[:success] = 'Your message was successfully sent!'
+        redirect_to conversation_path(conversation)
+      end
+    end
   end
 
   def show
@@ -41,6 +51,11 @@ class ConversationsController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body, :subject)
+  end
+
+  def show_error(message)
+    flash[:error] = message
+    redirect_to new_conversation_path
   end
 
 end
