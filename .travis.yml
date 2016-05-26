@@ -12,7 +12,6 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq postgresql-server-dev-9.4 libpq-dev
 before_script:
-#   - psql -c 'create database rails_messaging_test;' -U postgres
   - bundle exec rake db:create
   - bundle exec rake db:migrate
 script:
