@@ -213,3 +213,15 @@ Scenario: Save and display login info the next time after remember me
   Then I should be on the "login page"
   #ToDo: check how remember me works
   #And I should see "jenny@gmail.com" in "Email"
+
+Scenario: Move to trash
+  Given I am logged-in as "Daniel"
+  And I send a mail
+  And I click on the "Logout" link
+  Given I am logged-in as "Jenny"
+  And I am on the "home page"
+  And I click on the "Inbox" link
+  And I click on the "View" link
+  And I click on the "Move to trash" link
+  And I confirm the popup
+  Then I should see "Your reply message was successfully sent!"

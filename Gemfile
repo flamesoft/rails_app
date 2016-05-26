@@ -19,6 +19,7 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'capybara-webkit'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'spring'
@@ -26,6 +27,8 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'pry'
+  gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
 end
 
 group :production do
