@@ -1,3 +1,13 @@
+Feature: As a user
+  So that I can use the mail service
+  I want to be able to have all working mailing functions
+
+Background:
+  Given following users exists
+    | name   | email            | password |
+    | Jenny  | jenny@gmail.com  | password |
+    | Daniel | daniel@gmail.com | password |
+
 Scenario: Display Inbox tab when signed in
   Given I am logged-in as "Jenny"
   And I am on the "home page"
