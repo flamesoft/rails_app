@@ -102,10 +102,6 @@ Then(/^I should see "([^"]*)" in "([^"]*)"$/) do |value, field|
   find_field(field).value.should eq value
 end
 
-Given(/^I confirm the popup$/) do
-  #page.accept_confirm { visit trash_conversation_path }
-  #page.evaluate_script('window.confirm = function() { return true; }')
-  page.evaluate_script("window.confirm = function (msg) {
-    return true
-   }")
+Given(/^I should not see "([^"]*)"$/) do |text|
+  expect(page).not_to have_text(text)
 end

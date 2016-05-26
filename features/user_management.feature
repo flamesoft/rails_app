@@ -221,4 +221,4 @@ Scenario: Move to trash
   And I click on the "Inbox" link
   And I click on the "View" link
   And I click on the "Move to trash" link
-  #And I confirm the popup
+  And I should not see "View"
