@@ -251,3 +251,14 @@ Scenario: Validate recipients are not empty
   And I fill in "conversation[body]" with "boy"
   And I click on the "Send Message" button
   Then I should see "Your recipients cannot be empty"
+
+Scenario: Validates that the reply form is not empty
+  Given I am logged-in as "Daniel"
+  And I send a mail
+  And I click on the "Logout" link
+  Given I am logged-in as "Jenny"
+  And I am on the "home page"
+  And I click on the "Inbox" link
+  And I click on the "View" link
+  And I click on the "Reply" button
+  Then I should see "Your message cannot be empty"

@@ -28,9 +28,13 @@ class ConversationsController < ApplicationController
   end
 
   def reply
-    current_user.reply_to_conversation(conversation, message_params[:body])
-    flash[:notice] = 'Your reply message was successfully sent!'
-    redirect_to conversation_path(conversation)
+    if message_params[:body].empty? then
+      show_error 'Your message cannot be empty'
+    elsif
+      current_user.reply_to_conversation(conversation, message_params[:body])
+      flash[:notice] = 'Your reply message was successfully sent!'
+      redirect_to conversation_path(conversation)
+    end
   end
 
   def trash
