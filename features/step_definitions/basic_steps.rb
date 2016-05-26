@@ -103,5 +103,9 @@ Then(/^I should see "([^"]*)" in "([^"]*)"$/) do |value, field|
 end
 
 Given(/^I confirm the popup$/) do
-  page.accept_confirm { visit trash_conversation_path }
+  #page.accept_confirm { visit trash_conversation_path }
+  #page.evaluate_script('window.confirm = function() { return true; }')
+  page.evaluate_script("window.confirm = function (msg) {
+    return true
+   }")
 end
