@@ -23,3 +23,8 @@ $ rails s
 Then you will have a server running on http://localhost:3000/
 Sign up and log in to it. Try to add different users and send emails.
 The system only sends emails within it. You cannot really send out an email.
+
+### Result
+[![Code Climate](https://codeclimate.com/github/flamesoft/rails_app/badges/gpa.svg)](https://codeclimate.com/github/flamesoft/rails_app)
+[![Test Coverage](https://codeclimate.com/github/flamesoft/rails_app/badges/coverage.svg)](https://codeclimate.com/github/flamesoft/rails_app/coverage)
+[![Issue Count](https://codeclimate.com/github/flamesoft/rails_app/badges/issue_count.svg)](https://codeclimate.com/github/flamesoft/rails_app)
