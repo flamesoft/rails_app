@@ -1,6 +1,6 @@
 ##CA Mailboxer
 ### Overview
-This is a project for working with legacy code. The code itself is a simple mailbox application written with Ruby on Rails and based on Mailboxer framework. A user can sign up with an existing email and send/receive emails within this web application.
+This is a project for working with legacy code. The code itself is a simple mailbox application written with Ruby on Rails and based on Mailboxer framework. A user can sign up with an existing email and send/receive emails within this web application. Feature tests and unit tests are added into the legacy project. Bugs are fixed.
 ### Set up the application
 If you don't have Rails installed beforehand, it is time to install it now. Rails is a ruby gem, so you can install it as any other gem:
 ```
