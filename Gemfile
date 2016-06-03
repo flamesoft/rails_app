@@ -26,6 +26,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'pry'
+  gem 'simplecov', git: 'https://github.com/colszowka/simplecov'
   gem 'coveralls', require: false
 end
 
